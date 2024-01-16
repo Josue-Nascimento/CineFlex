@@ -20,26 +20,36 @@ export default function FilmesRenderizados() {
 
   return (
     <>
-      <Filmes>
+    <Container>
         <h2>Selecione o fime</h2>
+      <Filmes>
         {filmes.map((item) => (
           <Link key={item.id} to={`/sectionFilmes/${item.id}`}>
             <img src={item.posterURL} />
           </Link>
         ))}
       </Filmes>
+      </Container>
     </>
   );
 }
 
+const Container = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+h2{
+  margin-top: 20px;
+  height: 40px;
+    font-size: 25px;
+}
+`
+
 const Filmes = styled.ul`
-  h2 {
-    height: 40px;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
   img {
     width: 100px;
     margin: 10px;
